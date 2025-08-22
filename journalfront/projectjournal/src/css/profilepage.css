@@ -1,0 +1,639 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+.bgimg {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  opacity: 1; 
+  border-radius: 0;
+}
+.profile-page {
+  position: relative;
+  z-index: 10;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 3rem 2rem;
+  color: #333;
+  min-height: 150vh;
+}
+.profile-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: none;
+  box-shadow: none;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  height: 200px;
+}
+.nojournal{
+  font-size: 2rem;
+  border-radius: 10px;
+  height: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+.profile-header img{
+  margin-left: 3rem;
+}
+.avatar {
+  width: 200px;
+  height: 160px;
+  object-fit: cover;
+  margin-right: 3rem;
+  margin-top: -1rem;
+}
+.user-info {
+  font-size: 2rem;
+  flex: 1;
+}
+.user-info h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  color: #222;
+}
+.user-info p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  color: #444;
+}
+.edit-btn {
+  background-color: #686464;
+  color: white;
+  padding: 0.4rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  margin-left: auto;
+  margin-top: -6.5rem;
+  margin-right: 0rem;
+  cursor: pointer;
+}
+.dashboard {
+  margin-bottom: 2rem;
+  background: none;
+  box-shadow: none;
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+  height: 38rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.wlcmmsg {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.stats {
+  margin-top: 1rem;
+}
+
+.stats p {
+  margin: 0.5rem 0;
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  margin-left: 3rem;
+}
+.quote {
+  font-style: italic;
+  color: #666;
+  margin-top: 1rem;
+}
+.start-writing-btn {
+  background-color: #000;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 1.7rem;
+  margin-top: 1.3rem;
+  cursor: pointer;
+  margin-left: 4rem;
+}
+.journal-section {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.journal-section h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #222;
+  font-weight: bold;
+}
+.journal-entry {
+  font-size: 1.8rem;
+  font-weight: 700;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  width: 65%;
+  margin-left: 23rem;
+  height: 10rem;
+}
+.journal-entry h4 {
+  font-size: 1.5rem;
+  color: #333;
+  padding-top: 4rem;
+  padding-left: 8rem;
+}
+
+.close-btn {
+  float: right;
+  position: absolute;
+  top: 13px;
+  right: 19px;
+  background:transparent;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.dlticon {
+  width: auto;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 20.4rem;
+  padding-top:0.3rem ;
+}
+.profilemodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profilemodal-content {
+  color: #000;
+  padding: 20px;
+  max-width: 1000px;
+  max-height: 87vh;
+  overflow-y: auto;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  gap: 20px;
+  width: 90%;
+  height: 100%;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background-image: url("../assets/journalbg3.png");
+  filter: brightness(80%);
+}
+.journal-details {
+  width: 100%;
+  position: relative;
+}
+.journal-entry .prodate {
+ font-size: 1.2rem;
+color: #777;
+margin-left: 50rem;
+margin-top: -2rem;
+}
+.journal-details .date {
+  position: relative;
+  margin-left: 17rem;
+  color: black;
+  font-size: bold;
+}
+.journal-details h2 {
+  margin-left: 30rem;
+}
+.title{
+  display: flex;
+  align-items: center;   
+  top: 10px;    
+font-size: 2.3rem;
+margin-left: -4rem;
+margin-top: 1rem;
+font-weight: 600; 
+  gap: 5px;             
+  width: 100%;
+  text-align: center;
+}
+.entry-content p{
+font-size: 1.6rem;
+margin-left: 3rem;
+margin-top: 1rem;
+width: 52rem;
+text-align: start;
+}
+.ai-response h3{
+  font-size: 2.3rem;
+margin-left: -15rem;
+margin-top: -1rem;
+font-weight: 600;
+  position: relative;
+  top: 4rem;
+  margin-left: 12%;
+}
+.ai-response p{
+  position: relative;
+  top: 5rem;
+  left: 3.5rem;
+  text-align: start;
+  font-size: 1.25rem;
+  width: 52rem;
+  padding: 0.4rem;
+}
+.ai-response{
+  margin-bottom: 10rem;
+  
+}
+.mood-emoji:hover {
+  transform: scale(1.1);
+}
+
+@media(min-width: 600px) {
+  .journal-details {
+    flex-direction: row;
+  }
+  .entry-content, .ai-response {
+    width: 48%;
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+
+/* responsive */
+/* Make the entire page responsive */
+@media (max-width: 1024px) {
+  .profile-page {
+    padding: 2rem 1.5rem;
+  }
+  
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+    padding: 1.5rem;
+  }
+  
+  .avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .user-info {
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  
+  .user-info h2 {
+    font-size: 1.6rem;
+  }
+  .nojournal{
+    font-size: 1.5rem;
+    height: 5rem;
+  }
+  
+  .edit-btn {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+  
+  .dashboard {
+    height: auto;
+    padding: 1.5rem;
+  }
+  
+  .wlcmmsg {
+    font-size: 2rem;
+  }
+  .profile-header img{
+  margin-top: 3rem;
+  margin-left: 1rem;
+}
+  .user-info{
+    margin-top: -2rem;
+  }
+  .stats p {
+    font-size: 1.4rem;
+    margin-left: 0;
+    padding: 0.5rem;
+  }
+  
+  .start-writing-btn {
+    margin-left: 0;
+    font-size: 1.4rem;
+  }
+  
+  .journal-entry {
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    padding: 1rem 0;
+  }
+  
+  .journal-entry h4 {
+    padding-left: 2rem;
+    padding-top: 1rem;
+  }
+  
+  .prodate {
+    margin-left: 2rem !important;
+    margin-top: 0 !important;
+  }
+  
+  .dlticon {
+    right: 1rem !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 1rem;
+  }
+  
+  .profile-header {
+    padding: 1rem;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .user-info {
+    font-size: 1.2rem;
+  }
+  
+  .user-info h2 {
+    font-size: 1.4rem;
+  }
+  
+  .user-info p {
+    font-size: 0.9rem;
+  }
+  
+  .edit-btn {
+    font-size: 1rem;
+    padding: 0.3rem 0.8rem;
+  }
+  
+  .dashboard {
+    height: auto;
+    padding: 1rem;
+  }
+  
+  .wlcmmsg {
+    font-size: 1.6rem;
+  }
+  
+  .stats p {
+    font-size: 1.2rem;
+    padding: 0.4rem;
+  }
+  
+  .quote {
+    font-size: 1rem;
+  }
+  
+  .start-writing-btn {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .journal-section h3 {
+    font-size: 1.8rem;
+  }
+  
+  .journal-entry {
+    height: auto;
+    min-height: 5rem;
+    margin-top: 1.4rem;
+  }
+  
+  .journal-entry h4 {
+    font-size: 1.2rem;
+    padding-top: 0.8rem;
+    padding-left: 1rem;
+  }
+  
+  .prodate {
+    font-size: 1rem;
+    margin-left: 1rem !important;
+  }
+  
+  .dlticon {
+    height: 20px;
+  }
+}
+
+/* Modal improvements */
+.profilemodal-content {
+  background-color: rgba(234, 242, 245, 0.99);
+  background-image: none;
+  filter: none;
+  max-width: 70%;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  margin-left: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+}
+
+.mood-emoji {
+  font-size: 2.4rem !important;
+  cursor: default;
+  user-select: none;
+  line-height: 1;
+}
+
+.journal-details .date {
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+  color: #666;
+  font-weight: normal;
+}
+
+.entry-content {
+  margin: 0 auto 2rem;
+  width: 100%;
+}
+
+.entry-content p {
+  margin: 0 auto;
+  width: 90%;
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ai-response {
+  margin: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background-color: rgba(234, 242, 245, 0.95);
+  border-radius: 10px;
+  border-left: 4px solid rgba(50, 107, 128, 0.95);
+}
+
+.ai-response h3 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #333;
+  position: static;
+  top: auto;
+  left: auto;
+}
+
+.ai-response p {
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #444;
+  position: static;
+  top: auto;
+  left: auto;
+  padding: 0;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: transparent;
+  color: #3b3939;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+/* Modal responsiveness */
+@media (max-width: 768px) {
+  .profilemodal-content {
+    padding: 1.5rem;
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .title h2 {
+    font-size: 1.6rem;
+  }
+  
+  .mood-emoji {
+    font-size: 2rem !important;
+  }
+  
+  .entry-content p {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  
+  .ai-response {
+    padding: 1rem;
+  }
+  
+  .ai-response h3 {
+    font-size: 1.3rem;
+  }
+  
+  .ai-response p {
+    font-size: 1rem;
+  }
+  
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profilemodal-content {
+    padding: 1rem;
+  }
+  
+  .title {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .title h2 {
+    font-size: 1.4rem;
+  }
+  
+  .mood-emoji {
+    font-size: 1.8rem !important;
+    margin-left: 0;
+  }
+  
+  .entry-content p {
+    font-size: 1rem;
+  }
+  
+  .ai-response h3 {
+    font-size: 1.2rem;
+  }
+  
+  .ai-response p {
+    font-size: 0.95rem;
+  }
+}

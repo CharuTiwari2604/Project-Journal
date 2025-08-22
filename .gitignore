@@ -1,0 +1,14 @@
+# Ignore all environment files
+*.env
+
+# Node dependencies
+frontend/node_modules
+backend/node_modules
+nlp-services/node_modules
+
+# Frontend build
+frontend/build
+frontend/dist
+
+# Logs
+*.log
