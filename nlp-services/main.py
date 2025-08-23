@@ -298,6 +298,7 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://project-journal-eight.vercel.app",
         "http://localhost:5173",
         "https://300d9cd02181.ngrok-free.app"
     ],
