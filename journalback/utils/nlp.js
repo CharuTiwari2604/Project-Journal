@@ -3,7 +3,7 @@ import axios from "axios";
 export async function analyzeSentiment(text) {
   try {
     const response = await axios.post(
-      "https://nlp-services.onrender.com/analyze-sentiment",
+      "https://project-journal-nlp.onrender.com/analyze-sentiment",
       { text }
     );
     return response.data.result;

@@ -9,7 +9,7 @@ async function createJournal(req, res) {
     let sentimentResult = null;
     try {
       const response = await axios.post(
-        "https://nlp-services.onrender.com/analyze-sentiment",
+        "https://project-journal-nlp.onrender.com/analyze-sentiment",
         { text: entry }
       );
       sentimentResult = response.data.result;
