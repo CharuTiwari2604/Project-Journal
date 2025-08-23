@@ -43,7 +43,7 @@ const navigate = useNavigate();
   };
    const handleClose = () => {
        if (onClose) onClose();       
-    navigate('/profilepage'); 
+    navigate('/homepage'); 
   };
 
   return (

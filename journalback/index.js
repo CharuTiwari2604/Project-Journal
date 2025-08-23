@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS setup
 app.use(cors({
-  origin: ["https://project-journal-qflnawb0z-charu-tiwaris-projects.vercel.app", 'http://localhost:5173'], 
+  origin: ["https://project-journal-eight.vercel.app", 'http://localhost:5173'], 
   methods: ['GET','POST','PUT','DELETE','OPTIONS'],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
