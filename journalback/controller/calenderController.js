@@ -1,20 +1,12 @@
-// controllers/calendarController.js
-// Read-only calendar views built from existing journal entries.
-// No changes to your existing controllers/models required.
-
 const mongoose = require('mongoose');
 const Journal = require('../model/journalModal');// <-- If your model is named Journal.js, change this to: require('../models/Journal');
 ;
 const { isValidObjectId } = mongoose;
 
-// Helper: resolve timezone with a safe default
 function getTz(tzFromQuery) {
-  // you can also pull a default from process.env.CAL_TZ
   return tzFromQuery || process.env.CAL_TZ || 'Asia/Kolkata';
 }
 
-// GET /api/calendar/month?month=YYYY-MM&tz=Asia/Kolkata
-// Returns: { month, days: [{ dayKey, emoji, mood, count }] }
 exports.getMonthOverview = async (req, res) => {
   try {
     const userId = req.user?.id;
@@ -28,13 +20,9 @@ exports.getMonthOverview = async (req, res) => {
       return res.status(400).json({ message: 'month=YYYY-MM required' });
     }
 
-    // We’ll compute the month boundaries inside the pipeline using $dateTrunc
-    // and compare strings (YYYY-MM) for safety.
-    // Latest entry per day => sort by createdAt desc, then group by local-day string.
     const data = await Journal.aggregate([
       { $match: { user: new mongoose.Types.ObjectId(userId) } },
 
-      // Compute the local day (string) and local month (string) for each entry
       {
         $addFields: {
           _localDayStr: {
@@ -45,13 +33,11 @@ exports.getMonthOverview = async (req, res) => {
           }
         }
       },
-      // Keep only docs in requested month
       { $match: { _localMonthStr: month } },
 
       // Sort so latest of the day comes first
       { $sort: { createdAt: -1 } },
 
-      // Group by local day; take first (latest) for mood/emoji; count entries per day
       {
         $group: {
           _id: '$_localDayStr',
@@ -72,8 +58,6 @@ exports.getMonthOverview = async (req, res) => {
   }
 };
 
-// GET /api/calendar/day?date=YYYY-MM-DD&tz=Asia/Kolkata
-// Returns: list of entries for that local day, newest first
 exports.getEntriesByDay = async (req, res) => {
   try {
     const userId = req.user?.id;
@@ -87,7 +71,6 @@ exports.getEntriesByDay = async (req, res) => {
       return res.status(400).json({ message: 'date=YYYY-MM-DD required' });
     }
 
-    // Compute local day string and match in pipeline to avoid timezone bugs
     const entries = await Journal.aggregate([
       { $match: { user: new mongoose.Types.ObjectId(userId) } },
       {

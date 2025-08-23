@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from "../api/axios";
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line
@@ -25,7 +25,8 @@ const MoodTracker = () => {
     try {
         setLoading(true);
         const response = await axios.get(
-          "http://localhost:8000/api/journal/profile",
+          // "http://localhost:8000/api/journal/profile", 
+          '/journal/profile', 
           { withCredentials: true }
         );
         

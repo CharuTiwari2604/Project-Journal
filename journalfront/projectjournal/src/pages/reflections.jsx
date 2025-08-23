@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from "../api/axios";
 import { 
  startOfWeek, endOfWeek, startOfMonth, endOfMonth, 
   subWeeks, isWithinInterval 
@@ -20,10 +20,7 @@ const ReflectionPage = () => {
     const fetchJournalData = async () => {
        try {
         setLoading(true);
-        const response = await axios.get(
-          "http://localhost:8000/api/journal/profile",
-          { withCredentials: true }
-        );
+          const response = await api.get('/journal/profile', { withCredentials: true });
           if (response.data) {
           let journalsData = [];
           if (Array.isArray(response.data.journals)) {

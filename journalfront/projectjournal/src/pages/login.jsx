@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from "../api/axios";
 import '../css/signin.css';
+import { useNavigate } from "react-router-dom";
+
 
   const LogIn = ({onClose, onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   
+const navigate = useNavigate();
 
   const resetFields = () => {
     setEmail('');

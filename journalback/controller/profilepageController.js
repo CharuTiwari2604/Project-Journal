@@ -1,26 +1,6 @@
-// const User = require('../model/authModel');
-// const Journal = require('../model/journalModal');
-
-// exports.getProfileWithJournals = async (req, res) => {
-//   try {
-//     const userId = req.user.id;
-
-//     const user = await User.findById(userId).select('name email');
-//     const journals = await Journal.find({ user: userId }).sort({ createdAt: -1 });
-
-//     res.status(200).json({
-//       user,
-//       journals
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// };
-
 const User = require('../model/authModel');
 const Journal = require('../model/journalModal');
 
-// Get profile with journals
 const getProfileWithJournals = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select('-password');
@@ -37,7 +17,6 @@ const getProfileWithJournals = async (req, res) => {
   }
 };
 
-// ✅ Update username
 const updateUsername = async (req, res) => {
   try {
     const { username } = req.body;

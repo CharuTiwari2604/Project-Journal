@@ -1,7 +1,6 @@
 const express = require('express');
 const journalRouter = express.Router();
 const Journal =require('../model/journalModal');
-// const { getProfileWithJournals, updateUsername} = require('../controller/profilepageController');
 const authMiddleware = require('../middleware/authMiddleware');
 const { createJournal } = require('../controller/journalController');
 const { getProfileWithJournals, updateUsername } = require('../controller/profilepageController');

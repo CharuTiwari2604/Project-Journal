@@ -1,4 +1,3 @@
-// correct
 const mongoose = require('mongoose');
 const journalSchema = new mongoose.Schema({
   user: {
