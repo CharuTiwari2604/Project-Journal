@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from "../api/axios";
+import api from "../api/axios";
 import '../css/signin.css';
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +24,7 @@ const navigate = useNavigate();
     }
     try {
       setLoading(true);
-      const res = await axios.post(
+      const res = await api.post(
         '/login',
         { email, password },
         { withCredentials: true }

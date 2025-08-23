@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from "../api/axios";
+import api from "../api/axios";
 import '../css/profilepage.css';
 import { useNavigate } from 'react-router-dom';
 import bg from '../assets/progilebg.jpg';
@@ -42,7 +42,7 @@ const ProfilePage = () => {
     let ignore = false;
     setLoading(true);
 
-    axios
+    api
       .get("/journal/profile", { withCredentials: true })
       .then((res) => {
         if (ignore) return;
@@ -57,6 +57,8 @@ const ProfilePage = () => {
         setNewUsername(user.name || ""); 
 
         const items = Array.isArray(journals) ? journals : [];
+        items.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+         setJournals(items);
 
         // build journal map
         const map = new Map();
@@ -107,7 +109,7 @@ const ProfilePage = () => {
     if (!window.confirm("Are you sure you want to delete this entry?")) return;
 
     try {
-      await axios.delete(`/journal/${id}`, { withCredentials: true });
+      await api.delete(`/journal/${id}`, { withCredentials: true });
       setJournals(journals.filter((j) => j._id !== id));
     } catch (error) {
       console.error("Failed to delete entry:", error);
@@ -117,7 +119,7 @@ const ProfilePage = () => {
   //  Save username change
   const handleSaveUsername = async () => {
     try {
-      const res = await axios.put(
+      const res = await api.put(
         "/journal/update",
         { username: newUsername },
         { withCredentials: true }

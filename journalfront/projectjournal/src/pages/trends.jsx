@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from "../api/axios";
+import api from "../api/axios";
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line
@@ -24,12 +24,13 @@ const MoodTracker = () => {
     const fetchJournalData = async () => {
     try {
         setLoading(true);
-          const response = await api.get(`${import.meta.env.VITE_API_URL}/journal/profile`, { withCredentials: true }
+        const response = await api.get("/journal/profile", { withCredentials: true });
+          // const response = await api.get(`${import.meta.env.VITE_API_URL}/journal/profile`, { withCredentials: true }
         // const response = await axios.get(
           // "http://localhost:8000/api/journal/profile", 
           // '/journal/profile', 
           // { withCredentials: true }
-        );
+        
         
         if (response.data) {
           let journalsData = [];

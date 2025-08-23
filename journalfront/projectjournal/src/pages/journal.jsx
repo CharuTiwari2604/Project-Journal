@@ -4,7 +4,7 @@ import aibg from "../assets/ailogo.png";
 import bgimg from "../assets/journalbg2.jpg";
 import bgimg2 from "../assets/journalbg3.png";
 import { useNavigate } from 'react-router-dom';
-import axios from "../api/axios";
+import api from "../api/axios";
 import FloatingNavbar from "./floatingnavbar";
 
 const Journal = () => {
@@ -78,7 +78,7 @@ const Journal = () => {
       analysis: aiResponse
     };
     try {
-      await axios.post("/journal", journalData, {
+      await api.post("/journal", journalData, {
         withCredentials: true,
       });
 

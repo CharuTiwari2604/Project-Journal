@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../api/axios";
+import api from "../api/axios";
 import "../css/calendarPage.css";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
@@ -24,7 +24,7 @@ export default function CalendarPage() {
     let ignore = false;
     setLoading(true);
 
-    axios
+    api
       .get("/journal/profile", { withCredentials: true })
       .then((res) => {
         if (ignore) return;

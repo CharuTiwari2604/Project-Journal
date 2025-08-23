@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from "../api/axios";
+import api from "../api/axios";
 import '../css/signin.css';
 
   const SignIn = ({ isOpen, onClose, onSigninSuccess }) => {
@@ -22,7 +22,7 @@ import '../css/signin.css';
     }
     try {
       setLoading(true);
-      const res = await axios.post(
+      const res = await api.post(
         '/register',
         { name, email, password },
         { withCredentials: true }

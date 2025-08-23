@@ -572,7 +572,7 @@
 
 
 import React, { useState, useEffect } from "react";
-import axios from "../api/axios"; 
+import api from "../api/axios"; 
 import { Link, useNavigate } from "react-router-dom";
 import '../css/homepage.css';
 import logo from '../assets/logo.png';
@@ -604,7 +604,7 @@ export function Homepage() {
       setAuthError(null);
       
       // Use the full URL with the correct endpoint
-      const res = await axios.get(`${API_BASE_URL}/journal/profile`, { 
+      const res = await api.get(`${API_BASE_URL}/journal/profile`, { 
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json'
@@ -654,7 +654,7 @@ export function Homepage() {
     if (window.confirm("Are you sure you want to log out?")) {
       try {
         // Use the full URL with the correct endpoint
-        await axios.get(`${API_BASE_URL}/logout`, { 
+        await api.get(`${API_BASE_URL}/logout`, { 
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json'
