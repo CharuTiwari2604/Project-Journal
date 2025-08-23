@@ -1,4 +1,15 @@
-.homepage {
+/* .homepage {
+  background-color: #FDEEF4;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(221, 160, 221, 0.15) 0%, transparent 50%);
+  color: #4A5568;
+  overflow-x: hidden;
+  height: auto;
+  padding-bottom: 2rem;
+  }  */
+
+  .homepage {
   background-color: #FDEEF4;
   background-image: 
     radial-gradient(circle at 10% 20%, rgba(255, 182, 193, 0.15) 0%, transparent 50%),
@@ -6,7 +17,11 @@
   min-height: 100vh;
   color: #4A5568;
   overflow-x: hidden;
+  height: auto;
+  padding-bottom: 2rem; 
 }
+
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -321,6 +336,9 @@
   background: linear-gradient(135deg, rgb(127, 35, 51), rgb(132, 84, 92));
   text-align: center;
   height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .cta-content h2 {
@@ -365,8 +383,8 @@
   color: white;
   font-size: 0.9rem;
   margin-top: 4rem;
+  margin-top: auto;
 }
-/* banner */
 .fixed {
   position: fixed;
 }
@@ -491,6 +509,7 @@
     padding: 1rem;
     margin-top: 1rem;
     margin-left: -2rem;
+    min-height: 60vh;
   }
   
   .homenavlinks {
@@ -543,9 +562,10 @@
   
   .features-section {
     padding: 3rem 2%;
-    margin-top: -25rem;
+    /* margin-top: -25rem; */
     width: 95%;
     margin-left: 0.4rem;
+    margin-top: 0;
   }
   
   .features-grid {
@@ -634,8 +654,11 @@
   }
   
   .cta-section {
-    padding: 3rem 2%;
+     padding: 3rem 2%;
     height: 23rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
   }
   
   .cta-content h2 {
@@ -680,11 +703,13 @@
     margin-top: -9rem;
     margin-left: -1rem;
   }
+   .footer-bottom {
+    margin-top: auto; 
+    padding-top: 1rem;
+  }
 } 
 
 
-/*  */
-/* Phone (small devices) */
 @media screen and (max-width: 767px) {
   .bgimghome {
     display: none;
@@ -708,10 +733,12 @@
   position: relative;
   margin-left: 4rem;
 }
+.features-section {
+    margin-top: 2rem; /* Added positive margin */
+  }
 
 }
 
-/* Tablet devices */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .bgimghome {
     display: block; 
@@ -740,12 +767,17 @@ width: 25rem;
   .testimonial-card{
    margin-left: 7rem;
   }
+    .features-section {
+    margin-top: 0; 
+  }
 }
 
-/* Desktop (1024px and up) */
+
 @media screen and (min-width: 1024px) {
   .bgimghome {
     display: block;
     
   }
 }
+
+
