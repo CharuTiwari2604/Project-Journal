@@ -24,10 +24,11 @@ const MoodTracker = () => {
     const fetchJournalData = async () => {
     try {
         setLoading(true);
-        const response = await axios.get(
+          const response = await api.get(`${import.meta.env.VITE_API_URL}/journal/profile`, { withCredentials: true }
+        // const response = await axios.get(
           // "http://localhost:8000/api/journal/profile", 
-          '/journal/profile', 
-          { withCredentials: true }
+          // '/journal/profile', 
+          // { withCredentials: true }
         );
         
         if (response.data) {

@@ -20,7 +20,7 @@ const ReflectionPage = () => {
     const fetchJournalData = async () => {
        try {
         setLoading(true);
-          const response = await api.get('/journal/profile', { withCredentials: true });
+          const response = await api.get(`${import.meta.env.VITE_API_URL}/journal/profile`, { withCredentials: true });
           if (response.data) {
           let journalsData = [];
           if (Array.isArray(response.data.journals)) {
