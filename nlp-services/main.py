@@ -287,6 +287,18 @@ import random
 import re
 import logging
 
+import nltk
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    nltk.download("punkt")
+try:
+    nltk.data.find("corpora/brown")
+except LookupError:
+    nltk.download("brown")
+
+
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
