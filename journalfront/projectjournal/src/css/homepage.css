@@ -729,12 +729,19 @@
 .text .msg{
   font-size: 0.9rem;
 }
+.logo{
+  margin-left: -0.6rem;
+}
 .textcontainer{
   position: relative;
-  margin-left: 4rem;
+  margin-left: 6rem;
+  margin-top: 1.4rem;
 }
 .features-section {
-    margin-top: 2rem; /* Added positive margin */
+    margin-top: 2rem; 
+  }
+  .footer-bottom{
+    margin-top: 0.8rem;
   }
 
 }
