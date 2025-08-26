@@ -289,7 +289,7 @@ export function Homepage() {
       {showBanner && (
   <div className="fixed bottom-0 left-0 w-full bg-black/70 text-white border-t border-gray-300 shadow-md px-4 py-6 text-center z-[9999]">
     <span>
-      ⚠️ This is a demo project for educational use only. Please do not submit sensitive information.
+      ⚠️ This is a demo project for educational use only. Please do not submit sensitive information. For Testing use Email Id= "aarya@gmail.com" and Password= "aarya"
     </span>
     <button
       className="absolute top-2 right-4 text-white hover:text-gray-400 text-lg"
