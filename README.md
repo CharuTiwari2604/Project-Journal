@@ -27,25 +27,25 @@ A full-stack AI-powered digital journaling web app designed for self-reflection 
 ## 🖼️ Screenshots
 
 ### Homepage
-![Homepage](./screenshots/Screenshot (244).png)
+![Homepage](./screenshots/homepage.png)
 
 ### Journal
-![Journal](./screenshots/Screenshot (250).png)
+![Journal](./screenshots/entry.png)
 
 ### Profile Page
-![Profile](./screenshots/Screenshot (245).png)
+![Profile](./screenshots/profilepage.png)
 
 ### Saved Journals
-![SavedEntries](./screenshots/Screenshot (246).png)
+![SavedEntries](./screenshots/journal.png)
 
 ### Mood Analysis
-![MoodAnalysis](./screenshots/Screenshot (247).png)
+![MoodAnalysis](./screenshots/mood.png)
 
 ### Calender
-![Calender](./screenshots/Screenshot (248).png)
+![Calender](./screenshots/calender.png)
 
 ### Emotion Analysis
-![EmotionAnalysis](./screenshots/Screenshot (249).png)
+![EmotionAnalysis](./screenshots/emotions.png)
 
 
 ---
