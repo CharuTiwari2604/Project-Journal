@@ -6,12 +6,12 @@ A full-stack AI-powered digital journaling web app designed for self-reflection 
 
 ## 🚀 Features
 
-📝 Digital Journal – Write freely in a secure, private space.
-📊 Mood Tracking & Trends – Visualize emotional patterns over time (bar, line, pie charts).
-📅 Reflection Calendar – See journaling activity and mood patterns at a glance.
-🤖 AI-Powered Insights – Personalized reflections and emotional feedback using sentiment analysis (TextBlob).
-🔐 Authentication – Secure login/signup with JWT + cookies.
-📱 Responsive Design – Works seamlessly on mobile, tablet, and desktop.
+- 📝 Digital Journal – Write freely in a secure, private space.
+- 📊 Mood Tracking & Trends – Visualize emotional patterns over time (bar, line, pie charts).
+- 📅 Reflection Calendar – See journaling activity and mood patterns at a glance.
+- 🤖 AI-Powered Insights – Personalized reflections and emotional feedback using sentiment analysis (TextBlob).
+- 🔐 Authentication – Secure login/signup with JWT + cookies.
+- 📱 Responsive Design – Works seamlessly on mobile, tablet, and desktop.
 
 ---
 
