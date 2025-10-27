@@ -19,7 +19,7 @@ const Journal = () => {
   const [aiResponse, setAiResponse] = useState('');
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
-  const [buttonState, setButtonState] = useState('see'); // 'see' | 'save'
+  const [buttonState, setButtonState] = useState('see'); 
 
   const navigate = useNavigate();
 
@@ -31,34 +31,30 @@ const Journal = () => {
     }
     setLoading(true);
     setErrorMsg('');
+    setAiResponse("");
 
     try {
-      const nlpRes = await fetch(`${import.meta.env.VITE_NLP_URL}/analyze`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: entry }),
-      });
+     const res = await api.post(
+      "/ai/ask",
+      { prompt: entry },
+      { withCredentials: true }
+    );
 
-      if (nlpRes.ok) {
-        const analysis = await nlpRes.json();
-        setAiResponse(analysis.feedback || "No insight");
-      } else {
-        setAiResponse("NLP analysis unavailable");
-      }
-      // Switch to save mode
-      setButtonState('save');
-    } catch (err) {
-      console.error("NLP request failed:", err);
-      setAiResponse("NLP analysis unavailable");
-    } finally {
-      setLoading(false);
-    }
+    setAiResponse(res.data.response);
+    setButtonState("save");
+  } catch (err) {
+    console.error("Error analyzing journal:", err);
+    setAnalysis("Error: Could not analyze your journal. Please try again.");
+  } finally {
+    setLoading(false);
+  }
   };
+
   //  Save Journal + Analysis
   const handleSaveJournal = async () => {
     setLoading(true);
     setErrorMsg('');
-    // extra
+    
       let moodObj = {};
   if (selectedMood) {
     const [emoji, ...labelParts] = selectedMood.split(" ");
@@ -67,7 +63,6 @@ const Journal = () => {
       label: labelParts.join(" ")
     };
   }
-  // 
 
     const journalData = {
       date: dateStr,

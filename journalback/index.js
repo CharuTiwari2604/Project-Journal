@@ -10,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const authrouter = require('./routes/authRoutes');
 const journalRouter = require('./routes/profilepageRoutes');
 const calenderRouter = require('./routes/calenderRoutes');
+const gemrouter = require('./routes/geminiroutes');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(cors({
 app.use('/api', authrouter);
 app.use("/api/journal", journalRouter);
 app.use('/api/calendar', calenderRouter);
+app.use('/api/ai', gemrouter);
 
 // Global error handler
 app.use((err, req, res, next) => {
